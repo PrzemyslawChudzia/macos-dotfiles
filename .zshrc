@@ -1,5 +1,8 @@
 export PATH="/opt/homebrew/bin:$PATH"
 
+# Source env file
+. "$HOME/.local/bin/env"
+
 ### Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download Zinit, if it's not there yet
@@ -36,6 +39,7 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+# zinit plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
@@ -66,7 +70,6 @@ zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
-
 # Shell integrations
 eval "$(fzf --zsh)"
 
@@ -78,8 +81,6 @@ export NVM_DIR="$HOME/.nvm"
 # Aliases
 alias vim="nvim"
 alias ls='ls --color'
-
-. "$HOME/.local/bin/env"
 
 # Key binds
 bindkey '^[[A' history-beginning-search-backward
